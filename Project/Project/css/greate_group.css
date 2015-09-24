@@ -1,0 +1,76 @@
+
+.con
+	{
+		width: 993px;
+		height:100%;		
+		margin-left:auto;
+		margin-right:auto;
+		display:inline-block;
+		position:absolute;
+		left: -500px;
+		min-height:100em;
+		background-color:#FFFFFF;
+	
+	}
+
+	  
+.main_content
+    {
+		width:801px;
+		height:auto;
+		float: right;
+		background-color:#FFFFFF;
+	
+    }
+div.logo{
+		float:left;
+		width:994px;
+		height:100px;
+		background-color:#FFFFFF;
+		box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;
+		z-index:100;
+		-webkit-position:fixed;
+		font-weight:bold;
+	}
+.menu_left{
+		float:left;
+        width: 190px;
+		height:100%;
+		margin-left:1px;
+		background-color:#FFFFFF;
+		-webkit-position:fixed;
+	}
+	
+#form_create_group{
+	margin-left:75px;
+	height:450px;
+	width:400px;
+	margin-top:50px;
+	padding-left:-150px;
+	border-color:transparent;
+
+	
+	}
+	
+table.form_create_group{
+	margin-top:30px;
+	margin-left:-20px;
+	height:420px;
+	width:700px;
+	border-color:transparent;
+	}
+	
+div.pic{
+	margin-top:50px;
+	margin-left:40px;
+	}
+td{
+	width:auto;
+	border-color:transparent;
+
+	}
+.button{
+	margin-left:250px;
+	margin-top:50px;
+	
+	}

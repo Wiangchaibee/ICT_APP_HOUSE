@@ -1,0 +1,188 @@
+	body,html
+	{
+		height:100%;
+		font: normal 11px verdana;
+		background-image:url(../img/bg.jpg);
+		background-attachment:fixed;
+		background-repeat:repeat;
+	}
+
+	table.edit{
+	height:460px;
+	width:500px;
+	margin-left:140px;
+	padding-left:40px;
+	
+	}
+	table.editer{
+	height:460px;
+	width:720px;
+	margin-left:110px;
+	margin-top:40px;
+	padding-left:30px;
+	}
+	
+	
+	div.button{
+		margin-top:20px;
+		
+		}
+		
+	
+	
+	
+	.con
+	{
+		width: 993px;
+		height:100%;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:-20px;
+		position:absolute;
+		left: -500px;
+		
+	
+	}
+	
+	.con_warper
+	{
+		width: 600px;
+		height:100%;
+		position:absolute;
+		border-color:transparent;
+		left: 50%;
+		
+	}
+	
+	.app_page{
+		width: 100%;
+		height:100%;
+		background-color:transparent;
+		display:none;
+		position:relative;
+		z-index:120;
+		position:fixed;
+	  }
+	
+	div.logo{
+		float:left;
+		width:993px;
+		height:100px;
+		background-color:#FFFFFF;
+		box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;
+		z-index:100;
+		position:fixed;
+		font-weight:bold;
+
+		}
+	div.img{
+		margin-left:10px;
+
+		
+		}
+		
+	div.login_bar{
+		float:right;
+		border-color:transparent;
+		padding-right:40px;
+		margin-top:15px;
+
+		}
+		
+	.Logout{
+		border-color:transparent;
+		margin-right:-10px;
+		
+
+		}
+
+	.menu_left
+    {
+       	float:left;
+        width: 190px;
+		height:100%;
+		background-color:#FFFFFF;
+		position:fixed;
+		margin-top:100px;
+		box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;
+		
+     	
+    }
+	
+	.main_content
+    {
+		width:802px;
+		height:auto;
+		float: right;
+		margin-right:1px;
+		margin-top:100px;
+		background-color:#FFFFFF;
+		min-height:60em;
+		
+		     	
+    }
+	
+	div.form_profile{
+		height:450px;
+		width:500px;
+		margin-top:-10px;
+		margin-left:140px;
+
+		
+
+		}
+		
+	div.pic{
+		margin-left:40px;
+		margin-top:40px;
+		
+		}
+		
+	table.edit{
+		border-color:transparent;
+		margin-top:20px;
+		margin-left:-60px;
+		height:340px;
+		width:600px;
+		
+
+		}
+	td{
+		border-color:transparent;
+		width:auto;
+		
+		}
+		
+	.edit{
+		margin-left:50px;
+		}
+	.button{
+		margin-left:330px;
+		
+		}
+	form#edit_group{
+		margin-top:50px;
+		height:500px;
+		}
+	table.edit_group{
+		height:300px;
+		width:550px;
+		border-color:transparent;
+		margin-left:160px;
+		margin-top:60px;
+		}
+		
+	table#edit_page{
+		margin-left:250px;
+		margin-top:50px;
+		border:1px solid #000000;
+		margin-bottom:20px;
+		}
+	table#edit_page td{
+		font-size:13px;
+		padding:12px;
+		border:1px solid #000000;
+		text-align:center;
+		}
+		
+	

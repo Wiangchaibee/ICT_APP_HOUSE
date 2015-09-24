@@ -1,0 +1,38 @@
+	table.type1{
+		
+		border-left:none;
+		border-right:none;
+		border-top:none;
+		border-bottom:none;
+
+		}
+	table.type2{
+		
+		border-left:none;
+		border-right:none;
+		border-top:none;
+		border-bottom:none;
+		margin-left:20px;
+
+		}
+		
+	
+	table.type1 td{
+		border-left:none;
+		border-right:none;
+		border-top:none;
+		padding:5px;
+		width:200px;
+		
+
+		}
+	
+	table.type2 td{
+		border-left:none;
+		border-right:none;
+		border-top:none;
+		padding:5px;
+		width:180px;
+		
+
+		}

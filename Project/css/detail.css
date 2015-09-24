@@ -1,0 +1,64 @@
+	table.detail_left1{
+		border:none;
+		
+		} 
+	
+	table.detail_left1 td{
+		border:none;
+		
+		} 
+			
+	
+	
+	table.detail_left2{
+		
+		webkit-border-radius: 5px;
+		moz-border-radius: 5px;
+		border-radius: 5px;
+		padding:5px;
+		box-shadow: 0px 0px 2px rgb(0, 0, 0) inset;
+		
+	}
+		
+	table.detail_right1{
+		
+		border:none;
+
+	}	
+	
+	table.detail_right1 td{
+		
+		border:none;
+
+	}	
+		
+		
+	table.detail_right2{
+		webkit-border-radius: 5px;
+		moz-border-radius: 5px;
+		border-radius: 5px;
+		padding:5px;
+		box-shadow: 0px 0px 2px rgb(0, 0, 0) inset;
+		
+		
+	}
+	
+	table.detail_left2 td{
+		
+		width:200px;
+		border:none;
+		
+		
+		
+		}
+	
+	table.detail_right2 td{
+		
+		width:500px;
+		height:200px;
+		border:none;
+
+		}
+		
+
+	
