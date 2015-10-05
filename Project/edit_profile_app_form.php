@@ -291,13 +291,13 @@
          <tr>
             </td>
             <td>รุ่นที่ปรับปรุง <a style="color:#FF0000;">*</a></td>
-            <td colspan="2"><input type="text" name="app_version" id="app_version" value="<? echo $app_version;?>"/></td>
+            <td colspan="2"><input type="text" name="app_version" id="app_version" value="<?php echo $app_version;?>"/></td>
             
         </tr>
         <tr>
      	<td>วันที่อัพโหลดแก้ไข<a style="color:#FF0000;">*</a></td>
                    <td>
-                     <input type="text" name="dateInput" id="dateInput" value="<? echo $time; ?>"/>
+                     <input type="text" name="dateInput" id="dateInput" value="<?php echo $time; ?>"/>
   
 	
                     </td> 

@@ -5,7 +5,6 @@
 		include_once "class/Class_app.php";
 		include_once "class/Class_app_list.php";
 		session_start();
-	session_start();
 	
 ?>
 

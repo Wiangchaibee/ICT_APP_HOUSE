@@ -6,7 +6,6 @@
 		include_once "class/Class_app_list.php";
 		include_once "class/Class_pm.php";
 		include_once "class/Class_pm_list.php";
-		session_start();
 	
 	$_SESSION['pm_list'] = new pm_list();
 ?> 

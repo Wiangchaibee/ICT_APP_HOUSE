@@ -5,7 +5,6 @@
 		include_once "class/Class_app.php";
 		include_once "class/Class_app_list.php";
 		session_start();
-	session_start();
 	
 ?>
 
@@ -26,9 +25,9 @@
                                          
                                          <select name="grade_ad" id="grade_ad" onchange="advisor_project();">
                               
-                            	<? for($i=2540;$i<=2570;$i++){?>
-									<option value="<? echo $i; ?>"><? echo $i; ?></option>
-								<?	} ?>
+                            	<?php for($i=2540;$i<=2570;$i++){?>
+									<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+								<?php	} ?>
                             </select>
                    </td>
                    

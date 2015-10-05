@@ -19,7 +19,6 @@
 		protected $birthday;
 		
 		public function __get($name){
-			$this->name = "s_01";
 			return $this->$name;
 			
 		}
@@ -624,7 +623,6 @@ public function group($post , $files){
 									$error = "";
 									
 									/******Start Input Data Validation********/
-	
 								// student Same 
 									for($i=1 ; $i <= $num ; $i++){
 											for($o=1 ; $o<=$num ; $o++){
@@ -2587,6 +2585,7 @@ public function edit_profile_app($post , $files){
 													$b=$type;
 													$c="s";
 													$d=$c.'/'.$b.'/'.$a;
+													$_SESSION['s'] = $d ;
 													//$result .= "<tr><td>".$row2['app_id']."</td>";
 													$result .= "<tr><td>".$row['s_id']."</td>";
 													$result .= "<td>".$row['s_name']."</td>";
@@ -2723,13 +2722,11 @@ public function edit_profile_app($post , $files){
 				
 			}		
 			
-	public function delete_profile_user($data){
-		
-		$s=split("/",$data,3); 
+	public function delete_profile_user($data){		
+		$s = split("/",$data,3);
+		print_r ($s);
 				//print_r($text);
-				switch($s[1]){	 
-				
-				
+				switch($s[1]){	 				
 						 case 'member':
 						 		if($s[2] != ''){
 									$db = new database($GLOBALS['config']);
@@ -2838,7 +2835,7 @@ public function edit_profile_app($post , $files){
 						$db = new database($GLOBALS['config']);
 						
 						$text = explode(" ",$data);
-							$query = "SELECT * from `application` WHERE 1=1";
+							 $query = "SELECT * from `application` WHERE 1=1 ";
 						mysql_query("SET NAMES UTF8");
 							 	foreach($text as $i){
 									if(!empty($i)){
@@ -2849,6 +2846,7 @@ public function edit_profile_app($post , $files){
 										")";
 									}
 								}
+								// echo $query;die();
 						$res = $db->query($query);
 						$mm = mysql_num_rows($res);
 								
@@ -2871,6 +2869,7 @@ public function edit_profile_app($post , $files){
 								//$result .= "<td> <a href='.php?id=".$row2['app_id']."</td>";
 								$result .=  "<td><a href='javascript:load_edit_app_admin($b);'>แก้ไข</a></td>"; 
 								$result .= "<td><a href='javascript:load_delete_app_admin($b);'>ลบ</a></td></tr>";
+								
 								 ?>
                                  <link rel="stylesheet" type="text/css" href="css/main.css" />
 								 <?php
