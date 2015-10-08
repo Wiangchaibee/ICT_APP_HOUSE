@@ -1,16 +1,27 @@
 <?php
-	include_once "class/Server_config.php";
-	include_once "class/Class_user.php";
-	include_once "class/Class_app.php";	
-	include_once "class/Class_database.php";
-	include_once "class/Class_app_list.php";
-	session_start();
+	error_reporting (E_ALL ^ E_NOTICE);
+	
+
+		include_once "class/Server_config.php";
+		include_once "class/Class_user.php";
+		include_once "class/Class_database.php";
+		include_once "class/Class_app_list.php";
+		include_once "class/Class_app.php";	
+		
+		
+		
+	 if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
 	if(empty($_SESSION['user'])){
 		 $_SESSION['user'] = new guest("guest","guest");
 	}
 	//$row = mysql_fetch_assoc($res)
-						//$this->list_item[$i] = new app($row);
-					
+	//$this->list_item[$i] = new app($row);
+
+	$row = 0;
 	$_SESSION['app'] = new app($row);
 
 ?>
@@ -89,10 +100,10 @@
                     else {		
                     //Echo "</pre>";
                     //Echo "</pre>";
-                     Echo "</br>";
-                     Echo "<div style=margin-left:250px;>"; 
-					 Echo "สวัสดีคุณ: ".$_SESSION['user']->id; 
-					 Echo "</div>";
+                     echo "</br>";
+                     echo "<div style=margin-left:250px;>"; 
+					 echo "สวัสดีคุณ: ".$_SESSION['user']->id; 
+					 echo "</div>";
                     //Echo "</br>";
                    // Echo "id_type:".$_SESSION['user']->id_type;  
 					
@@ -116,7 +127,7 @@
 			   	}
 			   ?>     
                 	<div class="pm"  style="display:inline-block; cursor:pointer; color:#669933;"> 
-					<?php if($_SESSION['user']->id_type != 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงแอดมิน </a> <a href="javascript:load_pm();"> | กล่องข้อความ </a><?php }
+					<?php if($_SESSION['user']->id_type != 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงแอดมิน </a> <a href="javascript:load_pm();"> | กล่องข้อความ </a> |<a href="javascript:select_student();"> สร้างกลุ่ม |</a><?php }
 				?><?php if($_SESSION['user']->id_type == 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงสมาชิก</a> <a href="javascript:load_pm();"> | กล่องข้อความ </a> <?php } ?></div>
                     </div>
                      <?php
@@ -133,7 +144,7 @@
 				?>		 
                     
    </div>
-                 <?       
+                 <?php       
                         
    				 }
                 	?>
@@ -266,7 +277,7 @@
                                                     	<img src="<?php echo  $scr2;?>" width="770" height="310" alt="Slide 3">
                                                     
                                                     <div class="caption">
-                                                        <p>แอปพลิเคชั่นใหม่   ชื่อ : <? echo $name2; ?></p></p>
+                                                        <p>แอปพลิเคชั่นใหม่   ชื่อ : <?php echo $name2; ?></p></p>
                                                     </div>
                                                 </div>
                                                 
@@ -325,7 +336,7 @@
                    ?></div>
                   </tr>
 			</table> 				
-			</div>
+            
     </div>
     </div>
     </body>

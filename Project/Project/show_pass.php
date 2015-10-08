@@ -47,51 +47,7 @@
                         </div>
        		 </form>
 	  
-	  <? }if($num2[3] == '2'){ ?><?
-				$id = $_POST['id_member'];
-				$type = $_POST['type_member'];
-				
-				
-				$db = new database($GLOBALS['config']);
-							
-					  		 
-			
-				$db->close();
-			?>
-        		
-	  			<form name="edit_pass_nemmber" id="edit_pass_member"  >
-                    <table  style="margin-left:230px; margin-top:50px;">
-                        <tr>
-                         <td>รหัสผ่านเก่า</td>
-                               <td>
-                                    
-                                   <input type="text" name="pass_old" id="pass_old" value= <?php  echo "\"".$$num2[2]."\"";?> >
-                                 </td>   
-                         </tr>
-                         <tr><td>รหัสผ่านใหม่</td>
-                               <td>
-                                    
-                                    <input type="password" name="pass_new1" id="pass_new1" />
-                                 </td>       
-                         </tr>
-                         <tr><td>รหัสผ่านใหม่ อีกรอบ</td>
-                               <td>
-                                    
-                                    <input type="password" name="pass_new2" id="pass_new2" />
-                                 </td>      
-                      	</tr>      
-                               
-                     </table>
-                     <input type="hidden" id="id" value="<? echo $$num2[1]; ?>"
-                        
-                         
-           				 <div class="button" style="margin-left:350px;">
-                            <input type="button" value="ตกลง" onclick="update_pass2();"/>
-                            <input type="reset" value="ยกเลิก" />
-                        </div>
-       		 </form>
-	  
-	  <? } ?>
+	  <? }?>
   <div id="show_search_admin" ></div>
 </body>
 </html>

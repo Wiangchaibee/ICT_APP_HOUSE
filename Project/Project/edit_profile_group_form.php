@@ -41,8 +41,8 @@
   
   			<?php for($i=1;$i<=$row[0];$i++){ ?>
 					<tr> 
-                        <td width="116">สมาชิกกลุ่มคนที่<? echo $i; ?> <a style="color:#FF0000;">*</a></td>
-                        <td width="401"> <input type="text" name="student_<? echo $i; ?>" id="student_<? echo $i; ?>"   value= "<?php 
+                        <td width="116">สมาชิกกลุ่มคนที่<?php echo $i; ?> <a style="color:#FF0000;">*</a></td>
+                        <td width="401"> <input type="text" name="student_<?php echo $i; ?>" id="student_<php? echo $i; ?>"   value= "<?php 
                              
                                             $db = new database($GLOBALS['config']);
                             
@@ -59,14 +59,14 @@
                                         
                                         
                          ?>" /></td>
-                        <td width="110" id="name_<? echo $i; ?>" > <?php 
+                        <td width="110" id="name_<?php echo $i; ?>" > <?php 
                         
                                             echo $name;
                         ?>  </td>
                       </tr>
                     	
                                 
-			<?	$number = $row[0];} ?>
+			<?php	$number = $row[0];} ?>
       <tr>
         <td>สาขาวิชาของอาจารย์ที่ปรึกษาคนที่1 <a style="color:#FF0000;">*</a></td>
         <td><select name="field_1" id="field_1" >
@@ -172,10 +172,10 @@
                 <td colspan="2">
                 				
               				  <select name="group_grade" id="group_grade">
-                              	<? Echo "<option value=\"". $g_grade."\"selected=\"selected\">". $g_grade."</option>"; ?>
-                            	<? for($i=2540;$i<=2570;$i++){?>
-									<option value="<? echo $i; ?>"><? echo $i; ?></option>
-								<?	} ?>
+                              	<?php Echo "<option value=\"". $g_grade."\"selected=\"selected\">". $g_grade."</option>"; ?>
+                            	<?php for($i=2540;$i<=2570;$i++){?>
+									<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+								<?php	} ?>
                             </select>
                 </td>
         </tr>

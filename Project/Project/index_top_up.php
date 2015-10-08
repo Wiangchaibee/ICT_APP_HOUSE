@@ -1,15 +1,22 @@
 <?php
+	error_reporting (E_ALL ^ E_NOTICE);
 	include_once "class/Server_config.php";
 	include_once "class/Class_user.php";
 	include_once "class/Class_app.php";	
 	include_once "class/Class_database.php";
 	include_once "class/Class_app_list.php";
-	session_start();
+
 	if(empty($_SESSION['user'])){
 		 $_SESSION['user'] = new guest("guest","guest");
 	}
 	//$row = mysql_fetch_assoc($res)
-						//$this->list_item[$i] = new app($row);
+	
+    		//$this->list_item[$i] = new app($row);
+	 if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+	$row = 0;
 					
 	$_SESSION['app'] = new app($row);
 ?>
@@ -131,7 +138,7 @@
 				?>		 
                     
    </div>
-                 <?       
+                 <?php       
                         
    				 }
                 	?>

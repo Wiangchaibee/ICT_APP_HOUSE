@@ -22,7 +22,7 @@
 <table id="selest_student_group" style="margin-left:230px; margin-top:50px;">
         	 <td>กรอกจำนวนสมาชิกกลุ่ม <a style="color:#FF0000;">*</a></td>
                    <td>
-      <? if($_SESSION['user']->id_type != 'x' ){ ?> 
+      <?php if($_SESSION['user']->id_type != 'x' ){ ?> 
 	  			<form name="add_student" id="add_student"  enctype="multipart/form-data">
                         <input type="text" name="num" id="num" />
                          </td>     
@@ -33,8 +33,8 @@
                         </div>
         </form>
 	  
-	  <? } ?>
-		<? if($_SESSION['user']->id_type == 'x' ){ ?> 
+	  <?php } ?>
+		<?php if($_SESSION['user']->id_type == 'x' ){ ?> 
 	  			<form name="add_student" id="add_student"  enctype="multipart/form-data">
                         <input type="text" name="num" id="num" />
                          </td>     
@@ -45,7 +45,7 @@
                         </div>
         </form>
 	  
-	  <? } ?>
+	  <?php } ?>
   <div id="show_search_admin" ></div>
 </body>
 </html>

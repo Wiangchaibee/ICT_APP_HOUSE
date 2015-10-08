@@ -1,0 +1,96 @@
+body,html
+	{
+		background-color:#FFFFFF;
+		height:100%;
+		font: normal 11px verdana;
+		background-image:url(../img/bg.jpg);
+		background-attachment:fixed;
+		background-repeat:repeat; 
+		
+	
+	}
+div#register {
+	
+	border-color:transparent;
+	padding-left:260px;
+	padding-top:150px;
+	width:530px;
+	height:340px;
+	margin-left:5px;
+	border-color:transparent;
+	
+	}
+	
+table.register{
+	padding-left:100px;
+	padding-top:4px;
+	width:550px;
+	margin-top:20px;
+	border-color:transparent;
+	margin-left:20px;
+	height:400px;
+
+	}
+	
+table.register td{
+	padding-top:100px;
+	padding:8px;
+	border-color:transparent;
+
+	}
+form#form_re{
+	margin-top:-135px;
+	margin-left:-150px;
+	height:450px;
+	
+	}
+	
+div.con_warper{
+	height:670px;
+	}
+	
+div.button{
+	padding-left:180px;
+	padding-top:10px;
+	
+	}
+	
+div.pic{
+	padding-left:39px;
+	padding-top:30px;
+	}
+	
+.main_content
+    {
+		width:802px;
+		height:700px;
+		float: right;
+		margin-right:1px;
+		margin-top:100px;
+		background-color:#FFFFFF;
+		box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;
+		     	
+    }
+	
+.menu_left
+    {
+        float:left;
+        width: 190px;
+		height:100%;
+		background-color:#FFFFFF;
+		position:fixed;
+		margin-top:100px;
+		box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;	     	
+    }
+	
+	
+.con
+	{
+		width: 993px;
+		height:100%;
+		margin-left:auto;
+		margin-right:auto;
+		display:inline-block;
+		position:absolute;
+		left: -500px;
+	}

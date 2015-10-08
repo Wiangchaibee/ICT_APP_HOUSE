@@ -3,6 +3,10 @@
 	include_once "class/Class_database.php";
 	include_once "class/Server_config.php";
 	
+	 if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	
 	$_SESSION['user']->register($_POST);
 	//echo $_POST['id'];

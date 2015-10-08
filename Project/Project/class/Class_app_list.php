@@ -1,9 +1,11 @@
 <?php
+		error_reporting (E_ALL ^ E_DEPRECATED);
 		include_once "Class_database.php";
 		include_once "Server_config.php";
 		include_once "Class_app.php";
 		include_once "Class_user.php";
-		session_start();
+
+		
 
 
 	class app_list{
@@ -18,12 +20,10 @@
 			
 		
 			public function __construct($res){
-				
 					$this->num_row = mysql_num_rows($res);
-					
+				
 					
 					$i = 0;
-					
 					while($row = mysql_fetch_assoc($res)){
 						$this->list_item[$i] = new app($row);
 						$i++;
@@ -34,6 +34,7 @@
 		
 		
 		public function get_page($page_num){
+			
 			
 			$start_index = $page_num * $GLOBALS['max_app_per_page'] - $GLOBALS['max_app_per_page'];
 			$end_index   = $start_index + $GLOBALS['max_app_per_page'] - 1;
@@ -71,7 +72,7 @@
                                          
                                          
                                      	
-                                        <? 
+                                        <?php 
 										$string = $this->list_item[$start_index]->app_detail;
 										 $limit = '800'; 
 										 $break=" ";
@@ -82,17 +83,17 @@
 															$string = substr($string, 0, $breakpoint) . $pad;?>
 																<div class="item_2">เนื้อหา
                                                                 	<div style="margin-left:-1px; margin-top:5px; width:auto; overflow-x:auto; overflow-y:auto;">
-															 <?  echo $string;
+															 <?php  echo $string;
 																	?></div>
-																</div> <?
+																</div> <?php
 															}
 														} 
 											}else{
 																?><div class="item_2">เนื้อหา
                                                                 	<div style="margin-left:-1px; margin-top:5px; width:auto; overflow-x:auto; overflow-y:auto;">
-															  <? echo $this->list_item[$start_index]->app_detail;?>
+															  <?php echo $this->list_item[$start_index]->app_detail;?>
 																	</div>
-																</div> <?
+																</div> <?php
 													
 											}
 										?>
@@ -102,10 +103,10 @@
                                    
                                    		<div class="item_3">
                                         <?php if(strcmp($_SESSION['user']->id_type,"guest") != 0) { ?>
-                                        	<div style="margin-top:30px; margin-left:100px;" onclick="get_download_file(<? echo $this->list_item[$start_index]->app_id; ?>);"><a href="<? echo $this->list_item[$start_index]->app_path; ?>"><img src="img/download.jpg" /></a></div>
-                                            <div style="margin-top:-55px; margin-left:30px;" onclick="get_download_doc(<? echo $this->list_item[$start_index]->app_id; ?>);"><a href="<? echo $this->list_item[$start_index]->app_doc; ?>"><img src="img/download_doc.gif" style="width:50px; height:50px;" /></a></div>
+                                        	<div style="margin-top:30px; margin-left:100px;" onclick="get_download_file(<?php echo $this->list_item[$start_index]->app_id; ?>);"><a href="<?php echo $this->list_item[$start_index]->app_path; ?>"><img src="img/download.jpg" /></a></div>
+                                            <div style="margin-top:-55px; margin-left:30px;" onclick="get_download_doc(<?php echo $this->list_item[$start_index]->app_id; ?>);"><a href="<?php echo $this->list_item[$start_index]->app_doc; ?>"><img src="img/download_doc.gif" style="width:50px; height:50px;" /></a></div>
                        					<?php }if(strcmp($_SESSION['user']->id_type,"guest") == 0){ ?>
-                                        	<div style="margin-top:30px; margin-left:70px;"><? echo "เข้าสูู่ระบบก่อนจึงจะสามารถดาวน์โหลดได้";?></div>
+                                        	<div style="margin-top:30px; margin-left:70px;"><?php echo "เข้าสูู่ระบบก่อนจึงจะสามารถดาวน์โหลดได้";?></div>
                                             
                                         
                                         <?php } ?>
@@ -153,37 +154,37 @@
 					?>
 							
                             <div class="app_lists">
-								<? if($i == '1'){ ?>
+								<?php if($i == '1'){ ?>
                                     <div class="name">
                                             <div class="show_apps" name="show_apps" onclick ="get_app(<?php echo $start_index; ?>);">
                                     
                                                 <?php ?><img src="<?php echo $this->list_item[$start_index]->app_logo;?>" width="150" height="100">
                                              	<div class="name1"><?php echo "ชื่อ :"."".  $this->list_item[$start_index]->app_name;?> <br />
                                        			<?php echo "ชม :"."".  $this->list_item[$start_index]->app_view;?>
-                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
                                         		
             
                                             </div>
                                        
                                     </div>
-                               <? }else{ ?>
+                               <?php }else{ ?>
                                		<div class="name">
                                             <div class="show_apps" name="show_apps" onclick ="get_app(<?php echo $start_index; ?>);">
                                     
                                                 <?php ?><img src="<?php echo $this->list_item[$start_index]->app_logo;?>" width="150" height="100">
                                              	<div class="name1"><?php echo "ชื่อ :"."".  $this->list_item[$start_index]->app_name;?> <br />
                                        			<?php echo "ชม :"."".  $this->list_item[$start_index]->app_view;?>
-                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
                                         		
             
                                             </div>
                                        
                                     </div>
                                
-                               <?  } ?>
+                               <?php  } ?>
                              </div>
                                 
-                   <?
+                   <?php
 							$start_index++;$i++;
 					}
 	
@@ -209,37 +210,37 @@
 					?>
 							
                             <div class="app_lists">
-								<? if($i == '1'){ ?>
+								<?php if($i == '1'){ ?>
                                     <div class="name">
                                             <div class="show_apps" name="show_apps" onclick ="get_app2(<?php echo $start_index; ?>);">
                                     
                                                 <?php ?><img src="<?php echo $this->list_item[$start_index]->app_logo;?>" width="150" height="100">
                                              	<div class="name1"><?php echo "ชื่อ :"."".  $this->list_item[$start_index]->app_name;?> <br />
                                        			<?php echo "ชม :"."".  $this->list_item[$start_index]->app_view;?>
-                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
                                         		
             
                                             </div>
                                        
                                     </div>
-                               <? }else{ ?>
+                               <?php }else{ ?>
                                		<div class="name">
                                             <div class="show_apps" name="show_apps" onclick ="get_app2(<?php echo $start_index; ?>);">
                                     
                                                 <?php ?><img src="<?php echo $this->list_item[$start_index]->app_logo;?>" width="150" height="100">
                                              	<div class="name1"><?php echo "ชื่อ :"."".  $this->list_item[$start_index]->app_name;?> <br />
                                        			<?php echo "ชม :"."".  $this->list_item[$start_index]->app_view;?>
-                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
                                         		
             
                                             </div>
                                        
                                     </div>
                                
-                               <?  } ?>
+                               <?php  } ?>
                              </div>
                                 
-                   <?
+                   <?php
 							$start_index++;$i++;
 					}
 	
@@ -264,37 +265,37 @@
 					?>
 							
                             <div class="app_lists">
-								<? if($i == '1'){ ?>
+								<?php if($i == '1'){ ?>
                                     <div class="name">
                                             <div class="show_apps" name="show_apps" onclick ="get_app3(<?php echo $start_index; ?>);">
                                     
                                                 <?php ?><img src="<?php echo $this->list_item[$start_index]->app_logo;?>" width="150" height="100">
                                              	<div class="name1"><?php echo "ชื่อ :"."".  $this->list_item[$start_index]->app_name;?> <br />
                                        			<?php echo "ชม :"."".  $this->list_item[$start_index]->app_view;?>
-                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
                                         		
             
                                             </div>
                                        
                                     </div>
-                               <? }else{ ?>
+                               <?php }else{ ?>
                                		<div class="name">
                                             <div class="show_apps" name="show_apps" onclick ="get_app3(<?php echo $start_index; ?>);">
                                     
                                                 <?php ?><img src="<?php echo $this->list_item[$start_index]->app_logo;?>" width="150" height="100">
                                              	<div class="name1"><?php echo "ชื่อ :"."".  $this->list_item[$start_index]->app_name;?> <br />
                                        			<?php echo "ชม :"."".  $this->list_item[$start_index]->app_view;?>
-                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                                <div>คะแนน : <div id="score_star2" style="margin-top:-15px; margin-left:50px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
                                         		
             
                                             </div>
                                        
                                     </div>
                                
-                               <?  } ?>
+                               <?php  } ?>
                              </div>
                                 
-                   <?
+                   <?php
 							$start_index++;$i++;
 					}
 	
@@ -343,7 +344,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -359,7 +360,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -376,7 +377,7 @@
 											<h3>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                            ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -393,7 +394,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                            ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -410,7 +411,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -451,7 +452,7 @@
 										<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -469,7 +470,7 @@
                                        <h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                              ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -489,7 +490,7 @@
                                         <h3>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                            ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -507,7 +508,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -525,7 +526,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                              ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div> </div>
 											
                                             </div></div>
          
@@ -562,7 +563,7 @@
 										 <h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                            ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div>
 											</h2>
                                           </div>
                                         </div>
@@ -579,7 +580,7 @@
                                         <h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div>
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div>
 											</h2>
                                            </div>
                                          </div>
@@ -598,7 +599,7 @@
                                         <h3>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                              ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div>       
+                                            <div>คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-15px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div>       
 											</h3>
                                             </div>
                                          </div>
@@ -615,7 +616,7 @@
 											<h2>ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                             ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                            <div style="margin-top:2px;">คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-16px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div></div>
+                                            <div style="margin-top:2px;">คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-16px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div></div>
 											</h2>
                                            </div>
                                           </div>
@@ -632,7 +633,7 @@
 											<h2 style="margin-top:-80px;">ชื่อ : <?php echo $this->list_item[$start_index]->app_name;?> <br />
                                            ประเภท : <?php echo $this->list_item[$start_index]->app_tag;?> <br />
                                             ชม : <?php echo $this->list_item[$start_index]->app_view;?>
-                                           <div style="margin-top:2px;"> คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-16px;" data-rating="<? echo $this->list_item[$start_index]->app_vote_avg;?>"></div></div>
+                                           <div style="margin-top:2px;"> คะแนน : <div id="score_star2" style="margin-left:60px; margin-top:-16px;" data-rating="<?php echo $this->list_item[$start_index]->app_vote_avg;?>"></div></div>
                                             </h2>
                                             </div>
                                          </div>

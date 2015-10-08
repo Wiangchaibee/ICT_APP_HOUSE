@@ -1,10 +1,11 @@
 <?php
+
 		include_once "Class_database.php";
 		include_once "Server_config.php";
 		include_once "Class_user.php";
 		
 	
-		session_start();
+		
 	class app{
 		
 		protected $app_id;

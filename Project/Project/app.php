@@ -1,5 +1,4 @@
 <?php 
- 
 include_once "class/Class_app_list.php";
 include_once "class/Class_comment_list.php";
 include_once "class/Class_login.php";
@@ -7,8 +6,13 @@ include_once "class/Server_config.php";
 include_once "class/Class_user.php";
 include_once "class/Class_app.php";	
 include_once "class/Class_database.php";
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+	 error_reporting(E_ALL & ~E_NOTICE); 
 
-session_start();
+
 ?><head>
       
     
@@ -56,7 +60,7 @@ session_start();
 <?php 
  //print_r ($_POST['index']);
 // print_r ($_SESSION['search']->list_item[$_POST['index']]);
-
+ 
 $_SESSION['search']->list_item[$_POST['index']]->app_view();
 $_SESSION['viewing_app_id'] = $_SESSION['search']->list_item[$_POST['index']]->app_id;
 $_SESSION['item_index'] = $_POST['index'];
@@ -123,8 +127,8 @@ $_SESSION['app_vote_avg'] = $_SESSION['search']->list_item[$_POST['index']]->app
 							<div>ดาวน์โหลดไฟล์เอกสาร: <?php echo $_SESSION['app_doc_load'];?> ครั้ง</div>
                             <div style="margin-left:8px;">ดาวน์โหลดไฟลฺ์โปรแกรม: <?php echo $_SESSION['app_file_load'];?> ครั้ง</div>
 							<?php  if(strcmp($_SESSION['user']->id_type,"guest") != 0){ ?>
-                            <div id="download1"  style="margin-left:315px; margin-top:-28px; width:30px;" onclick="get_download_file(<? echo $_SESSION['viewing_app_id']; ?>);"><a href="<? echo $_SESSION['app_file']; ?>" ><img src="img/download.jpg" style="width:30px; height:30px;"  /></a></div>
-                            <div id="download"  style="margin-left:280px; margin-top:-32px; width:30px;"  onclick="get_download_doc(<? echo $_SESSION['viewing_app_id']; ?>);"><a href="<? echo $_SESSION['app_doc']; ?>"><img src="img/download_doc.gif" style="width:30px; height:30px;"   /></a></div>
+                            <div id="download1"  style="margin-left:315px; margin-top:-28px; width:30px;" onclick="get_download_file(<?php echo $_SESSION['viewing_app_id']; ?>);"><a href="<? echo $_SESSION['app_file']; ?>" ><img src="img/download.jpg" style="width:30px; height:30px;"  /></a></div>
+                            <div id="download"  style="margin-left:280px; margin-top:-32px; width:30px;"  onclick="get_download_doc(<?php echo $_SESSION['viewing_app_id']; ?>);"><a href="<? echo $_SESSION['app_doc']; ?>"><img src="img/download_doc.gif" style="width:30px; height:30px;"   /></a></div>
                             <?php }
 							else{ ?>
 							<div id="please_login" style="margin-left:280px; margin-top:-120px;"><img src="img/login.png" style="width:50px; height:60px;" /></div>
@@ -165,7 +169,7 @@ $_SESSION['app_vote_avg'] = $_SESSION['search']->list_item[$_POST['index']]->app
 									?><table>
                                     	<tr>
                                         	<td>
-                                             <? echo "ชื่อ-สกุล : ".$name; ?>
+                                             <?php echo "ชื่อ-สกุล : ".$name; ?>
                                             </td>
                                            
                                         </tr>
@@ -174,12 +178,12 @@ $_SESSION['app_vote_avg'] = $_SESSION['search']->list_item[$_POST['index']]->app
                                        <table> 
                                     	<tr>
                                             <td>
-                                              <? echo "อีเมลล์ : ".$email; ?>
+                                              <?php echo "อีเมลล์ : ".$email; ?>
                                              </td>
                                          </tr>
                                     
                                     
-                                    </table> <?
+                                    </table> <?php
 										
 										
 							}

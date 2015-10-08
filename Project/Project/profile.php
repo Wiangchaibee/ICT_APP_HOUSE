@@ -1,6 +1,9 @@
-<?
+<?php
 	include_once "class/Class_user.php";
-	session_start();
+	 if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	
 	//echo $_SESSION['user']->job_id;
 ?>
@@ -84,6 +87,10 @@
   	<?php
 				include_once "class/Class_database.php";
 				include_once "class/server_config.php";
+				 if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	
 		switch($_SESSION['user']->id_type){
 				//Case member

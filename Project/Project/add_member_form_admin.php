@@ -1,6 +1,7 @@
 <?php
 	include_once "class/Class_user.php";
-	session_start();
+	session_start();	
+	$type = 0;
 	
 	//echo $_SESSION['user']->job_id;
 ?><style type="text/css">@import "css/humanity.datepick.css";</style> 

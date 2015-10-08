@@ -4,7 +4,11 @@
 	include_once "class/Class_app.php";	
 	include_once "class/Class_database.php";
 	include_once "class/Class_app_list.php";
-	session_start();
+	error_reporting (E_ALL ^ E_NOTICE);
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	if(empty($_SESSION['user'])){
 		 $_SESSION['user'] = new guest("guest","guest");
 	}

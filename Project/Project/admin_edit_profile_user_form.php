@@ -9,7 +9,8 @@
  		  
           <div class="pic"><img src="img/iconprofile.png" /></div>
           <div class="form_profile" align="center">
-          <?php  $s=split("/",$x,3); 
+          
+          <?php $x =0 ; $s=split("/",$x,3); 
 		 
 		  
 		  ?>

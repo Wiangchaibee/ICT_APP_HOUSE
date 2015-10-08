@@ -51,9 +51,12 @@
 						
 						case 'x_':
 							//Echo "This is admin";
-							//Echo admin table
-							//Echo "select * from admin where x_id ="."'".$user."'"." AND x_pass ="."'".$pass."'";
-						 	$this->result = $db->query("select * from admin where x_id ="."'".$user."'"." AND x_pass ="."'".$pass."'");
+							//echo "admin table";
+							//echo  (mysql_num_rows(mysql_query ("select * from admin where x_id ="."'".$user."'"." AND x_pass ="."'".$pass."'")));die();
+							
+						 	$this->result = $db->query("select * from admin where x_id ='".$user."' AND x_pass ='".$pass."' ") or die (mysql_error());
+							//var_dump($this->result);
+					
 						break;			
 					}			
 		}else{
@@ -63,6 +66,7 @@
 					
 					
 					//print_r ($this->result);
+					//echo mysql_num_rows($this->result);die();
 					if(mysql_num_rows($this->result) == 1)
 				
 							$this->valid = true;						
@@ -77,7 +81,7 @@
 				{
 					
 					
-						return $this->valid;
+						return  $this->valid;
 					
 				}
 				

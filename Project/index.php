@@ -8,8 +8,7 @@
 		include_once "class/Class_app_list.php";
 		include_once "class/Class_app.php";	
 		
-		
-		
+			
 	 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -34,6 +33,13 @@
 <head>
 
 <link rel="stylesheet" type="text/css" href="reset.css" />
+<title>ICT APP HOUSE</title>
+<link rel="icon" href="img/ict_tran2.png">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css.map">
+<link href="bootstrap/js/bootstrap.min.js">
+
 
 <!-- Include jquery tap -->
 <link type="text/css" href="javascript/jqueryui/css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" /> 
@@ -59,102 +65,104 @@
 </head>
 
 <body>
-<div class="move_app_index" id="move_up_index"></div>
-<div class="app_page" id="app_page"></div>
-<div class="con_warper">
-<div class="con">
-
-
-   <div class="logo"><div class="login_bar"> 
-  		
-       
-        
-  	
-			<?php
-            if(strcmp($_SESSION['user']->id_type,"guest") == 0)
-            {
-            ?>
-                
-                            
-                           <br /><form action="login.php" method="post" name="form1"  id="form1" class="login_bar">                                     
-                                <label for="user" >user</label>
-                                <input type="text" name="user" id="user" style="border-radius:6px;" />
-                                <label for="pass">pass</label>
-                                <input type="password"  name="pass" id="pass" style="border-radius:6px;" />
-                                <!--<select name="id_type">
-                                  <option value="m">Member</option>
-                                  <option value="s">Student</option>
-                                  <option value="a">Advisor</option>
-                                  <option value="x">Admin</option>
-                                </select>-->
-                              <input type="submit" name="button" id="button" value="Login" />
-                            </form>
-                       
-                         
-						<br /><a href="javascript:get_register();" style="margin-left:380px; color:#663366; text-decoration:underline; cursor:pointer;">สมัครสมาชิก</a>
-						
-           					</div>	
-                            
-		   <?php
-                } 
-                    else {		
-                    //Echo "</pre>";
-                    //Echo "</pre>";
-                     echo "</br>";
-                     echo "<div style=margin-left:250px;>"; 
-					 echo "สวัสดีคุณ: ".$_SESSION['user']->id; 
-					 echo "</div>";
-                    //Echo "</br>";
-                   // Echo "id_type:".$_SESSION['user']->id_type;  
+<div class="container">
+	<div class="move_app_index" id="move_up_index"></div>
+	<div class="app_page" id="app_page"></div>
+	<div class="con_warper">
+	<div class="con">
+		<div class="row" width="990px" style="
+    width: 990px;">
+			<div class="col-md-5">  
+				<br /><div class="img"><img src="img/icon2.png" /></div>
+			</div>
+			<div class="col-md-7">
+			   <div class=""><div class="login_bar " style="line-height:20px"> 
 					
-            ?>
-                    <div class="Logout">
-                    
-                        <form id="form1" name="form1" method="post" action="logout.php">
-                         <input type="submit" name="Logout" id="Logout" value="Logout" style="margin-left:280px;" />
-                        </form>
-                    </div>
-                    
-                    
-                    <div class="tap" style="float:right;">
-             <?php
-			 	if($_SESSION['user']->id_type != '' ){
-					
-			 ?><?php if($_SESSION['user']->id_type == 's' && $_SESSION['user']->group_id == '0' ){ ?>
-             	<br /><div  style="display:inline-block; color:#669933; cursor:pointer;"><a href="javascript:select_student();"> สร้างกลุ่ม |</a></div> 
-             	<?php } ?>	<div class="profile"  style="display:inline-block"><a href="edit_page.php">แก้ไขข้อมูล</a></div>
-               <?php 
-			   	}
-			   ?>     
-                	<div class="pm"  style="display:inline-block; cursor:pointer; color:#669933;"> 
-					<?php if($_SESSION['user']->id_type != 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงแอดมิน </a> <a href="javascript:load_pm();"> | กล่องข้อความ </a> |<a href="javascript:select_student();"> สร้างกลุ่ม |</a><?php }
-				?><?php if($_SESSION['user']->id_type == 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงสมาชิก</a> <a href="javascript:load_pm();"> | กล่องข้อความ </a> <?php } ?></div>
-                    </div>
-                     <?php
-		  		
-                if($_SESSION['user']->id_type == 's' && $_SESSION['user']->group_id == 0){	
-                //echo "aaa";
-           ?> 
-                   
-                
-          	           
-                            
-                <?php
-                        }
-				?>		 
-                    
-   </div>
+						<?php
+						if(strcmp($_SESSION['user']->id_type,"guest") == 0)
+						{
+						?>
+							
+										
+									   <br /><form action="login.php" method="post" name="form1"  id="form1" class="login_bar navbar-form navbar-right">     
+											<div class="input-group">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+												<input id="user" type="text" class="form-control" name="user" value="" placeholder="Username" required>                                        
+											</div>
+
+											<div class="input-group"  >
+												<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+												<input id="password" type="password" class="form-control" name="pass" value="" placeholder="Password" required>                                        
+												
+											</div>
+											<div class="text-right" style="margin-top:10px">
+												<button type="submit" class="btn btn-success btn-sm">เข้าสู่ระบบ</button>
+												<a href="javascript:get_register();" class="btn btn-default btn-sm" style="color:#000">สมัครสมาชิก</a>
+											</div>
+										</form>
+								   
+									 
+									<br />
+									
+										</div>	
+										
+					   <?php
+							} 
+								else {		
+								//Echo "</pre>";
+								//Echo "</pre>";
+								 echo "</br>";
+								 echo "<div style=margin-left:250px;>"; 
+								 echo "สวัสดีคุณ: ".$_SESSION['user']->id; 
+								 echo "</div>";
+								//Echo "</br>";
+							   // Echo "id_type:".$_SESSION['user']->id_type;  
+								
+						?>
+								<div class="Logout">
+								
+									<form id="form1" name="form1" method="post" action="logout.php">
+									 <input type="submit" name="Logout" id="Logout" value="Logout" style="margin-left:280px;" />
+									</form>
+								</div>
+								
+								
+								<div class="tap" style="float:right;">
+						 <?php
+							if($_SESSION['user']->id_type != '' ){
+								
+						 ?><?php if($_SESSION['user']->id_type == 's' && $_SESSION['user']->group_id == '0' ){ ?>
+							<br /><div  style="display:inline-block; color:#669933; cursor:pointer;"><a href="javascript:select_student();"> สร้างกลุ่ม |</a></div> 
+							<?php } ?>	<div class="profile"  style="display:inline-block"><a href="edit_page.php">แก้ไขข้อมูล</a></div>
+						   <?php 
+							}
+						   ?>     
+								<div class="pm"  style="display:inline-block; cursor:pointer; color:#669933;"> 
+								<?php if($_SESSION['user']->id_type != 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงแอดมิน </a> <a href="javascript:load_pm();"> | กล่องข้อความ </a> |<a href="javascript:select_student();"> สร้างกลุ่ม |</a><?php }
+							?><?php if($_SESSION['user']->id_type == 'x'){ ?> <a href="javascript:get_pm();"> | ส่งข้อความถึงสมาชิก</a> <a href="javascript:load_pm();"> | กล่องข้อความ </a> <?php } ?></div>
+								</div>
+								 <?php
+							
+							if($_SESSION['user']->id_type == 's' && $_SESSION['user']->group_id == 0){	
+							//echo "aaa";
+					   ?> 
+							   
+							
+								   
+										
+							<?php
+									}
+							?>		 
+								
+			   </div>
+		   
                  <?php       
                         
    				 }
                 	?>
-                        
-                         
-                       
-                
-		  
-                      
-                    <br /><div class="img"><img src="img/icon2.png" /></div></div> 
+		</div></div>
+		
+	</div> 
 
  					
                     <div class="menu_left" id="menu_left">
@@ -175,8 +183,10 @@
                             </div>
                             
                                  
-                            <br /><ul class="v_menu">
-                            			<li><a href="index.php">หน้าแรก</a></li> 
+                            <br />
+                            
+                            <ul class="v_menu">
+                            			<li><a href="index.php" >หน้าแรก</a></li> 
                                         <li><a href="index_top_up.php">อัปเดทล่าสุด</a></li>
                                          <li><a href="index_top_download.php">ดาวน์โหลดสูงสุด</a></li> 
                                          <li><a href="index_top_view.php">เยียมชมสูงสุด</a></li> 
@@ -185,11 +195,11 @@
                                            
                                         <ul>
 										
-                                            <li><a href="index_cpe.php" style="z-index:50;">วิศวกรรมคอมพิวเตอร์</a></li>
-                                            <li><a href="index_cs.php">วิทยาการคอมพิวเตอร์</a></li> 
-                                            <li><a href="index_bc.php">คอมพิวเตอร์ธุรกิจ</a></li> 
-                                            <li><a href="index_it.php">เทคโนโลยีสารสนเทศ</a></li>
-                                            <li><a href="index_gis.php">ภูมิสารสนเทศศาสตร์</a></li>
+                                            <li><a href="index_cpe.php" style="height:50px;">วิศวกรรมคอมพิวเตอร์</a></li>
+                                            <li><a href="index_cs.php" style="height:50px;">วิทยาการคอมพิวเตอร์</a></li> 
+                                            <li><a href="index_bc.php" style="height:50px;">คอมพิวเตอร์ธุรกิจ</a></li> 
+                                            <li><a href="index_it.php" style="height:50px;">เทคโนโลยีสารสนเทศ</a></li>
+                                            <li><a href="index_gis.php" style="height:50px;">ภูมิสารสนเทศศาสตร์</a></li>
                                      
                        					</ul>
                                      
@@ -288,57 +298,58 @@
                                         
                                     </div>
 
-                    </div>
-               </div>
-   
-      		  </div>
-               
-             <div class="show_app" >
-             <table>
-             	<tr>
-                  	<div class="top_view"><?php 
-					
-						$db = new database ($GLOBALS['config']);
-                     $res = $db -> query(
-                   "SELECT * FROM `project` . `application`
-					WHERE `app_view`  
-					ORDER BY app_view DESC LIMIT 5");
-					$_SESSION['search'] = new app_list($res);
-					print_r ($_SESSION['search']->get_page_index_top_view());
-					
-                   ?></div>
-                  </tr>
-                 </table>
-                 <table>
-                 <tr>
-                   <div class="top_vote"><?php 
-				
-				$db = new database ($GLOBALS['config']);
-                     $res = $db -> query(
-                   "SELECT * FROM `project` . `application`
-					WHERE `app_vote_avg`  
-					ORDER BY app_vote_avg DESC LIMIT 5");
-					$_SESSION['search2'] = new app_list($res);
-					print_r ($_SESSION['search2']->get_page_index_top_vote());
-                   ?></div>
-                   </tr></table>
-                   <table>
-                   <tr>
-                   <div class="new"><?php 
-				
-				$db = new database ($GLOBALS['config']);
-                     $res = $db -> query(
-                   "SELECT * FROM `project` . `application`
-					WHERE `app_time`  
-					ORDER BY app_time DESC LIMIT 5");
-					$_SESSION['search3'] = new app_list($res);
-					print_r ($_SESSION['search3']->get_page_index_new());
-                   ?></div>
-                  </tr>
-			</table> 				
-            
-    </div>
-    </div>
+								</div>
+						   </div>
+			   
+						  </div>
+						   
+						 <div class="show_app" >
+						 <table>
+							<tr>
+								<div class="top_view"><?php 
+								
+									$db = new database ($GLOBALS['config']);
+								 $res = $db -> query(
+							   "SELECT * FROM `project` . `application`
+								WHERE `app_view`  
+								ORDER BY app_view DESC LIMIT 5");
+								$_SESSION['search'] = new app_list($res);
+								print_r ($_SESSION['search']->get_page_index_top_view());
+								
+							   ?></div>
+							  </tr>
+							 </table>
+							 <table>
+							 <tr>
+							   <div class="top_vote"><?php 
+							
+							$db = new database ($GLOBALS['config']);
+								 $res = $db -> query(
+							   "SELECT * FROM `project` . `application`
+								WHERE `app_vote_avg`  
+								ORDER BY app_vote_avg DESC LIMIT 5");
+								$_SESSION['search2'] = new app_list($res);
+								print_r ($_SESSION['search2']->get_page_index_top_vote());
+							   ?></div>
+							   </tr></table>
+							   <table>
+							   <tr>
+							   <div class="new"><?php 
+							
+							$db = new database ($GLOBALS['config']);
+								 $res = $db -> query(
+							   "SELECT * FROM `project` . `application`
+								WHERE `app_time`  
+								ORDER BY app_time DESC LIMIT 5");
+								$_SESSION['search3'] = new app_list($res);
+								print_r ($_SESSION['search3']->get_page_index_new());
+							   ?></div>
+							  </tr>
+						</table> 				
+						
+				</div>
+				</div>
+	</div>
     </body>
     </html>
 						

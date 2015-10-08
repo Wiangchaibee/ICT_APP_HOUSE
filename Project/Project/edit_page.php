@@ -57,7 +57,7 @@
            	 
                     
    </div>
-                 <?       
+                 <?php      
                         
    				 }
                 	?>
@@ -106,55 +106,55 @@
                    
                     <div class="main_content" id="main_content">
                     <img src="img/edit_page.png" style="margin-left:280px; margin-top:50px;" />
-                    	<? if($_SESSION['user']->id_type == 'm'){ ?>
+                    	<?php if($_SESSION['user']->id_type == 'm'){ ?>
                         	<table id="edit_page">	
                             	<tr>
                                 	<td style="font-weight:bold;">ชื่อ-สกุล</td>
-                                    <td><? echo $_SESSION['user']->name; ?></td>
+                                    <td><?php echo $_SESSION['user']->name; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">อีเมลล์</td>
-                                    <td><? echo $_SESSION['user']->email; ?></td>
+                                    <td><?php echo $_SESSION['user']->email; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">ที่อยู่</td>
-                                    <td><? echo $_SESSION['user']->address; ?></td>
+                                    <td><?php echo $_SESSION['user']->address; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เบอร์โทร์</td>
-                                    <td><? echo $_SESSION['user']->tel; ?></td>
+                                    <td><?php echo $_SESSION['user']->tel; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เพศ</td>
-                                    <td><? echo $_SESSION['user']->sex; ?></td>
+                                    <td><?php echo $_SESSION['user']->sex; ?></td>
                         		</tr>
                         	</table>
-                        <? }else if($_SESSION['user']->id_type == 's'){ ?>
+                        <?php }else if($_SESSION['user']->id_type == 's'){ ?>
                     		<table id="edit_page">	
                             	<tr>
                                 	<td style="font-weight:bold;">ชื่อ-สกุล</td>
-                                    <td><? echo $_SESSION['user']->name; ?></td>
+                                    <td><?php echo $_SESSION['user']->name; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">อีเมลล์</td>
-                                    <td><? echo $_SESSION['user']->email; ?></td>
+                                    <td><?php echo $_SESSION['user']->email; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">ที่อยู่</td>
-                                    <td><? echo $_SESSION['user']->address; ?></td>
+                                    <td><?php echo $_SESSION['user']->address; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เบอร์โทร์</td>
-                                    <td><? echo $_SESSION['user']->tel; ?></td>
+                                    <td><?php echo $_SESSION['user']->tel; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เพศ</td>
-                                    <td><? echo $_SESSION['user']->sex; ?></td>
+                                    <td><?php echo $_SESSION['user']->sex; ?></td>
                         		</tr>
                         	</table>
 				
                              
- 						<? }else if($_SESSION['user']->id_type == 'a'){ 
+ 						<?php }else if($_SESSION['user']->id_type == 'a'){ 
 								$db = new database($GLOBALS['config']);
 							
 							$re = $db->query(
@@ -177,43 +177,43 @@
                         		<table id="edit_page">	
                             	<tr>
                                 	<td style="font-weight:bold;">ชื่อ-สกุล</td>
-                                    <td><? echo $_SESSION['user']->name; ?></td>
+                                    <td><?php echo $_SESSION['user']->name; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">อีเมลล์</td>
-                                    <td><? echo $_SESSION['user']->email; ?></td>
+                                    <td><?php echo $_SESSION['user']->email; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">ที่อยู่</td>
-                                    <td><? echo $_SESSION['user']->address; ?></td>
+                                    <td><?php echo $_SESSION['user']->address; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เบอร์โทร์</td>
-                                    <td><? echo $_SESSION['user']->tel; ?></td>
+                                    <td><?php echo $_SESSION['user']->tel; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เพศ</td>
-                                    <td><? echo $_SESSION['user']->sex; ?></td>
+                                    <td><?php echo $_SESSION['user']->sex; ?></td>
                         		</tr>
                                 <tr>
                                 	<td colspan="2" style="font-weight:bold;">จำนวนโปรเจคภายใต้การดูแลของแต่ละปีการศึกษา</td>
                                     
                                 </tr>
-                                <? for($i=$a2; $i <= $a ; $i++){
+                                <?php for($i=$a2; $i <= $a ; $i++){
 									$re3 = $db->query("select * FROM `project` . `group`
 										WHERE `g_grade` = '".$i."'  AND `g_a_id1` = '".$_SESSION['user']->id."'
 									 ");
 									$ro3 = mysql_num_rows($re3);
 									if($ro3 != '0'){ ?>	
                                 	 <tr>
-                                	<td style="font-weight:bold;">ปี<? echo $i; ?></td>
-                                    <td style="font-weight:bold;"><? echo $ro3; ?> กลุ่ม</td>
+                                	<td style="font-weight:bold;">ปี<?php echo $i; ?></td>
+                                    <td style="font-weight:bold;"><?php echo $ro3; ?> กลุ่ม</td>
                         		</tr>
-                                <?} } ?>
+                                <?php } } ?>
                         	</table>
                         	
                         
-                        <? }else if($_SESSION['user']->id_type == 'x'){ 
+                        <?php }else if($_SESSION['user']->id_type == 'x'){ 
 						
 							$db = new database($GLOBALS['config']);
 							
@@ -238,49 +238,49 @@
                         	<table id="edit_page">	
                             	<tr>
                                 	<td style="font-weight:bold;">ชื่อ</td>
-                                    <td><? echo $_SESSION['user']->name; ?></td>
+                                    <td><?php echo $_SESSION['user']->name; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">อีเมลล์</td>
-                                    <td><? echo $_SESSION['user']->email; ?></td>
+                                    <td><?php echo $_SESSION['user']->email; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">ที่อยู่</td>
-                                    <td><? echo $_SESSION['user']->address; ?></td>
+                                    <td><?php echo $_SESSION['user']->address; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เบอร์โทร์</td>
-                                    <td><? echo $_SESSION['user']->tel; ?></td>
+                                    <td><?php echo $_SESSION['user']->tel; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">เพศ</td>
-                                    <td><? echo $_SESSION['user']->sex; ?></td>
+                                    <td><?php echo $_SESSION['user']->sex; ?></td>
                         		</tr>
                                 <tr>
                                 	<td style="font-weight:bold;">จำนวนสมาชิกบุคคลทั่วไป</td>
-                                    <td><? echo $row; ?> คน</td>
+                                    <td><?php echo $row; ?> คน</td>
                         		</tr>
                                   <tr>
                                 	<td style="font-weight:bold;">จำนวนสมาชิกนิสิต</td>
-                                    <td><? echo $row2; ?> คน</td>
+                                    <td><?php echo $row2; ?> คน</td>
                         		</tr>
                                   <tr>
                                 	<td style="font-weight:bold;">จำนวนสมาชิกอาจารย์</td>
-                                    <td><? echo $row3; ?> คน</td>
+                                    <td><?php echo $row3; ?> คน</td>
                         		</tr>
                                   <tr>
                                 	<td style="font-weight:bold;">จำนวนสมาชิกผู้ดูแลระบบ</td>
-                                    <td><? echo $row4; ?> คน</td>
+                                    <td><?php echo $row4; ?> คน</td>
                         		</tr>
                                  <tr>
                                 	<td style="font-weight:bold;">จำนวนแอปพลิเคชั่น</td>
-                                    <td><? echo $row5; ?> โปรแกรม</td>
+                                    <td><?php echo $row5; ?> โปรแกรม</td>
                         		</tr>
                                
                         	</table>
                         
                         
-                        <? } ?>
+                        <?php } ?>
                    </div>
  </div>
 </body>

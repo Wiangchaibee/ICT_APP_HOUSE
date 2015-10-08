@@ -3,7 +3,10 @@
 		include_once "class/Class_user.php";
 		include_once "class/Class_database.php";
 		include_once "class/Server_config.php";
-		session_start();
+		 if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	
 		
 		//update profile
@@ -15,9 +18,8 @@
 			//$s=split("/",$x,3); 
 			//echo $x;
 			//echo $s;
-	$_SESSION['user']->delete_profile_user($s);
-		
-		
+	$i = $_SESSION['s'];
+	$_SESSION['user']->delete_profile_user($i);	
 		
 		//update Session
 		$id 		= $_SESSION['user']->id;

@@ -26,7 +26,7 @@
 				else
 				{
 					
-					$this->_db = mysql_connect($this->name,$this->user,$this->pass);
+				$this->_db = mysql_connect($this->name,$this->user,$this->pass);
 					
 					if(!$this->_db)
 					{
@@ -66,7 +66,7 @@
 		
 		public function close()
 			{
-			mysqli_close($this->_db);
+			mysql_close($this->_db);
 			}
 	}
 ?>

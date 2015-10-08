@@ -4,7 +4,6 @@
 		include_once "class/Server_config.php";
 		include_once "class/Class_app.php";
 		include_once "class/Class_app_list.php";
-		session_start();
 		
 ?>
 
@@ -24,8 +23,8 @@
 $db = new database($GLOBALS['config']);
 			
  $res = $db -> query(
-"SELECT * FROM `project` . `application`
-WHERE `app_g_id` = '".$i."'
+"SELECT * FROM project . application`
+WHERE app_g_id = '".$i."'
 ");	
 $row = mysql_fetch_array($res);
 $app_name=$row["app_name"];
@@ -48,8 +47,8 @@ $db->close();
 					$db = new database($GLOBALS['config']);
 			
 					  		 $res = $db -> query(
-							"SELECT COUNT(s_g_id) AS aa FROM `student`
-							WHERE `s_g_id` = '".$i."'
+							"SELECT COUNT(s_g_id) AS aa FROM student
+							WHERE s_g_id = '".$i."'
 							");	
 							$row = mysql_fetch_row($res);
 							$db->close();
@@ -57,8 +56,8 @@ $db->close();
 							$db = new database($GLOBALS['config']);
                             
 							 $re = $db -> query(
-							"SELECT * FROM `project` . `group`
-							WHERE `g_id` = '".$i."'
+							"SELECT * FROM project . group`
+							WHERE g_id = '".$i."'
 							");	
 							$rows = mysql_fetch_array($re);	
 							 $id_advisor_1=$rows["g_a_id1"];
@@ -74,13 +73,13 @@ $db->close();
     <?php for($o=1;$o<=$row[0];$o++){ ?>
 					<tr> 
                         <td width="116">สมาชิกกลุ่มคนที่<? echo $o; ?></td>
-                        <td width="401"> <input type="text" name="student_<? echo $o; ?>" id="student_<? echo $o; ?>"   value= "<?php 
+                        <td width="401"> <input type="text" name="student_<?php echo $o; ?>" id="student_<?php echo $o; ?>"   value= "<?php 
                              
                                             $db = new database($GLOBALS['config']);
                             
                                              $r = $db -> query(
-                                            "SELECT * FROM `project` . `student`
-                                            WHERE `s_g_id` = '".$i."' AND `s_position` = '".$o."'
+                                            "SELECT * FROM project . student
+                                            WHERE s_g_id = '".$i."' AND s_position = '".$o."'
                                             ");	
                                             $ro = mysql_fetch_array($r);
                                             $id=$ro["s_id"];
@@ -91,12 +90,12 @@ $db->close();
                                         
                                         
                          ?>" />
-                        <h width="110" id="name_<? echo $o; ?>" > <?php echo $name;
+                        <h width="110" id="name_<?php echo $o; ?>" > <?php echo $name;
                         ?>  </h></td>
                       </tr>
                     	
                                 
-			<?	} ?>
+			<?php	} ?>
       <tr>
         <td>สาขาวิชาของอาจารย์ที่ปรึกษาคนที่1</td>
         <td><select name="field_1" id="field_1" >
@@ -104,8 +103,8 @@ $db->close();
 					$db = new database($GLOBALS['config']);
                             
 							 $res1 = $db -> query(
-							"SELECT * FROM `project` . `advisor`
-							WHERE `a_id` = '".$id_advisor_1."'
+							"SELECT * FROM project . advisor
+							WHERE a_id = '".$id_advisor_1."'
 							");	
 							$row1 = mysql_fetch_array($res1);	
 								$a_f_id1=$row1["a_f_id"];
@@ -115,8 +114,8 @@ $db->close();
 						$db = new database($GLOBALS['config']);
                             
 							 $res1_1 = $db -> query(
-							"SELECT * FROM `project` . `field`
-							WHERE `f_id` = '".$a_f_id1."'
+							"SELECT * FROM project . field
+							WHERE f_id = '".$a_f_id1."'
 							");	
 							$row1_1 = mysql_fetch_array($res1_1);	
 								$f_name_1=$row1_1["f_name"];
@@ -202,7 +201,7 @@ $db->close();
       <tr>
         	<td>กลุ่มของนิสิตรหัสชั้นปี</td>
                 <td colspan="2">
-              				 <input type="text" name="group_grade" id="group_grade" value= <? echo $g_grade; ?> />
+              				 <input type="text" name="group_grade" id="group_grade" value= <?php echo $g_grade; ?> />
                 </td>
         </tr>
       
@@ -452,13 +451,13 @@ $db->close();
          <tr>
             </td>
             <td>รุ่นที่ปรับปรุง</td>
-            <td colspan="2"><input type="text" name="app_version" id="app_version" value="<? echo $app_version;?>"/></td>
+            <td colspan="2"><input type="text" name="app_version" id="app_version" value="<?php echo $app_version;?>"/></td>
             
         </tr>
           <tr>
      	<td>วันที่อัพโหลดแก้ไข<a style="color:#FF0000;">*</a></td>
                    <td>
-                     <input type="text" name="dateInput" id="dateInput" value="<? echo $time; ?>"/>
+                     <input type="text" name="dateInput" id="dateInput" value="<?php echo $time; ?>"/>
   
 	
                     </td> 

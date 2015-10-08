@@ -1,6 +1,7 @@
 <?php
+error_reporting (E_ALL ^ E_DEPRECATED);
 
-			$config = array('127.0.0.1','root','1234','project');
+			$config = array('127.0.0.1','root','root','project');
 			$min_garde = 45;
 			$max_garde = 61;
 			$head_admin = "x_01";
