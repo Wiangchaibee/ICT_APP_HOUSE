@@ -8,7 +8,8 @@
 		include_once "class/Class_app_list.php";
 		include_once "class/Class_app.php";	
 		
-			
+		
+		
 	 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -36,9 +37,14 @@
 <title>ICT APP HOUSE</title>
 <link rel="icon" href="img/ict_tran2.png">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css.map">
-<link href="bootstrap/js/bootstrap.min.js">
+
+<!-- Bootstrap 3 -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
 
 
 <!-- Include jquery tap -->
@@ -70,8 +76,7 @@
 	<div class="app_page" id="app_page"></div>
 	<div class="con_warper">
 	<div class="con">
-		<div class="row" width="990px" style="
-    width: 990px;">
+		<div class="row">
 			<div class="col-md-5">  
 				<br /><div class="img"><img src="img/icon2.png" /></div>
 			</div>
@@ -111,9 +116,10 @@
 								else {		
 								//Echo "</pre>";
 								//Echo "</pre>";
-								 echo "</br>";
-								 echo "<div style=margin-left:250px;>"; 
-								 echo "สวัสดีคุณ: ".$_SESSION['user']->id; 
+
+								 echo "</br> ";
+								 echo "<div style=margin-left:420px;>"; 
+								 echo "สวัสดีคุณ: ".$_SESSION['user']->id."&nbsp;&nbsp;"; 
 								 echo "</div>";
 								//Echo "</br>";
 							   // Echo "id_type:".$_SESSION['user']->id_type;  
@@ -122,7 +128,7 @@
 								<div class="Logout">
 								
 									<form id="form1" name="form1" method="post" action="logout.php">
-									 <input type="submit" name="Logout" id="Logout" value="Logout" style="margin-left:280px;" />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;									 <input type="submit" name="Logout" id="Logout" value="Logout" style="margin-left:280px;" />
 									</form>
 								</div>
 								

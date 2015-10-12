@@ -66,8 +66,8 @@ body,html
 		height:100%;
 		background-color:#FFFFFF;
 		position:fixed;
-		margin-top:100px;*/
-		/*box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;*/
+		margin-top:100px;
+		box-shadow: 0px 0px 1px rgb(0, 0, 0) inset;
 	
 		     	
     }
@@ -78,7 +78,7 @@ body,html
 		height:auto;
 		float: right;
 		margin-right:1px;
-		margin-top:100px;*/
+		margin-top:100px;
 		background-color:#FFFFFF;
 			     	
     }
@@ -355,13 +355,13 @@ body,html
  
 		display:block;
 		text-indent:none;
-		height:5px;
+		height:30px;
 		background-color:#669;
 		border:1px #FFFFFF inset;
 		padding:5px;
 		margin-left:-40px;
 		border-radius:6px;
-		line-height: 60px;
+		line-height: 40px;
 	}
  
 	ul.v_menu > li:hover > ul > li:hover{ /* กำหนดรูปแบบให้กับเมนูย่อยเมื่อเมาส์อยู่เหนือ */
@@ -389,8 +389,8 @@ body,html
 	div.login_bar{
 		float:right;
 		border-color:transparent;
-		padding-right:40px;
-		margin-top:15px;
+		padding-left: 52px;
+		padding-right: 10px;
 		
 
 		}

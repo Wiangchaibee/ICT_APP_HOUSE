@@ -30,12 +30,14 @@
 													//Debug stdent
 													//Echo "This is student";
 													$user = new student($_POST['user']);
+													$_SESSION['user'] = $user;
 												break;
 												
 												case 'a_':
 													//Debug advisor
 													//Echo "This is advisor";
 													$user = new advisor($_POST['user']);
+													$_SESSION['user'] = $user;
 												break;
 												
 												case 'x_':
@@ -47,6 +49,7 @@
 									}							
 				}else{
 						$user = new member($_POST['user']);
+						$_SESSION['user'] = $user;
 							
 					
 					}

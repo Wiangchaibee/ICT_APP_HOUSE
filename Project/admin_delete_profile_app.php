@@ -14,11 +14,8 @@
 		//if($_FILES['screen_file1']['error'] == 4){echo 'aaa';}
 		//echo $i;	
 	//echo $_POST['student_1'] , $_POST['student_2'] , $_POST['student_3'] , $_POST['advisor_1'] , $_POST['advisor_2'] , $_POST['group_grade'];
-	
-	$_SESSION['user']->delete_profile_app($i);
-		
-		
-		
+	echo $a;die();
+		$_SESSION['user']->delete_profile_app($a);
 		//update Session
 		$id 		= $_SESSION['user']->id;
 		$id_type 	= $_SESSION['user']->id_type;
